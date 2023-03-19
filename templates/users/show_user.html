@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}User info{% endblock %}
+{% block content %}
+
+<div class="card m-auto" style="width: 20rem;">
+    <img src = {{user.image_url}} class="card-img-top m-auto mt-2" style="width:90%" alt= "{{user.full_name}}'s pic" >
+    <div class="card-body">
+        <h3 class="text-center">{{ user.full_name}}</h3>
+        <p class="card-text">
+            <ul style="list-style-type:none">
+                <li> <a href="#">Age</a></li>
+                <li> <a href="#">Blogs</a></li>
+                <li> <a href="#">Comments</a></li>
+                <li> <a href="#">Followers</a></li>
+            </ul>
+        </p>
+        <form>
+        
+            <a href="/users" class="btn btn-primary ms-4" style="width:5rem; margin:0 auto">Back</a>
+        
+            <a href="/users/{{ user.id }}/edit" class="btn btn-success" style="width:5rem; margin:0 auto">Edit</a>
+        
+            <button class="btn btn-danger" style="width:5rem; margin:0 auto" formaction="/users/{{ user.id }}/delete"
+            formmethod="POST">Delete</button>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
