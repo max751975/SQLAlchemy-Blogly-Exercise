@@ -8,20 +8,27 @@
         <h3 class="text-center">{{ user.full_name}}</h3>
         <p class="card-text">
             <ul style="list-style-type:none">
-                <li> <a href="#">Age</a></li>
                 <li> <a href="#">Blogs</a></li>
+                    <ul style="list-style-type:square; font-size:0.85rem">
+                        {% for p in posts: %}
+                        <li>{{p.short_date}} <a href='/posts/{{ p.id }}'> {{ p.title }} </a></li>
+                        {% endfor %}
+                    </ul>
                 <li> <a href="#">Comments</a></li>
                 <li> <a href="#">Followers</a></li>
             </ul>
         </p>
         <form>
         
-            <a href="/users" class="btn btn-primary ms-4" style="width:5rem; margin:0 auto">Back</a>
+            <a href="/" class="btn btn-primary ms-4" style="width:5rem; margin:0 auto">Home</a>
         
             <a href="/users/{{ user.id }}/edit" class="btn btn-success" style="width:5rem; margin:0 auto">Edit</a>
+            
+            <a href="/users/{{ user.id }}/posts/new" class="btn btn-secondary">Add Post</a>
+            
         
-            <button class="btn btn-danger" style="width:5rem; margin:0 auto" formaction="/users/{{ user.id }}/delete"
-            formmethod="POST">Delete</button>
+            <!-- <button class="btn btn-danger" style="width:5rem; margin:0 auto" formaction="/users/{{ user.id }}/delete"
+            formmethod="POST">Delete</button> -->
 
         </form>
     </div>

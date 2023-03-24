@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Posts{% endblock %}
+{% block content %}
+<h1 class="ms-5">All Posts</h1>
+<ul class="ms-4">
+    {% for p in posts: %}
+    <li>
+        <a style="text-decoration: none" href="/posts/{{ p.id }}">{{ p.title }}</a> by 
+        <a style="text-decoration: none" href="/users/{{ p.user_id }}">{{p.user.full_name}}</a>
+        ({{ p.friendly_date }})    
+    </li>
+    {% endfor %}
+</ul>
+<!-- <div class="ms-4">
+    <a href="/posts/new" class="btn btn-sm btn-secondary">Add Post</a>
+</div> -->
+{% endblock %}

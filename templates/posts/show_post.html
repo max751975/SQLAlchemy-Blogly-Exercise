@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Post body{% endblock %}
+{% block content %}
+
+<div class="card m-auto" style="width: 40rem;">
+    <div class="card-body">
+        <h3 class="text-center">{{ post.title}}</h3>
+        <p class="card-text" style="padding-left: 2rem; border-bottom: 1px solid black">
+            {{ post.content }}
+        </p>
+        <p>
+            <i>by {{ post.user.full_name}}, {{ post.friendly_date }}</i>
+        </p>
+        <form>
+        
+            <a href="/" class="btn btn-sm btn-primary ms-4" style="width:5rem; margin:0 auto">Home</a>
+        
+            <a href="/posts/{{ post.id }}/edit" class="btn btn-sm btn-success" style="width:5rem; margin:0 auto">Edit</a>
+            
+            <a href="/users/{{ post.user.id }}" class="btn btn-sm btn-secondary" style="width:5rem; margin:0 auto">User</a>
+        
+            <!-- <button class="btn btn-sm btn-danger" style="width:5rem; margin:0 auto" formaction="/posts/{{ post.id }}/delete"
+            formmethod="POST">Delete</button> -->
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

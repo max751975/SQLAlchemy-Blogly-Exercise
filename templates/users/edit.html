@@ -1,22 +1,25 @@
 {% extends 'base.html' %}
 {% block title %}New user{% endblock %}
 {% block content %}
-<h1>Edit {{ user.first_name }}'s information</h1>
+<h1>Edit {{ user.first_name}}'s information</h1>
 <form action="" method = POST>
     <div class="mb-3">
         <label for="first_name" class="form-label">First Name</label>
         <input type="text" class="form-control" name="first_name" value = "{{ user.first_name}}" autofocus="autofocus" required>
-      </div>
+    </div>
     <div class="mb-3">
         <label for="last_name" class="form-label">Last Name</label>
         <input type="text" class="form-control" name="last_name" value ="{{ user.last_name }}" required>
-      </div>
+    </div>
     <div class="mb-3">
         <label for="image_url" class="form-label">Image url</label>
         <input type="text" class="form-control" name="image_url" value ="{{ user.image_url }}">
-      </div>
+    </div>
       <button class="btn btn-success">Confirm</button>
-      <button class="btn btn-danger">Cancel</button>
+      <button class="btn btn-danger" style="width:5rem; margin:0 auto" formaction="/users/{{ user.id }}/delete"
+              formmethod="POST">Delete
+      </button>
+      <button class="btn btn-dark">Cancel</button>
 </form>
 
 {% endblock %}

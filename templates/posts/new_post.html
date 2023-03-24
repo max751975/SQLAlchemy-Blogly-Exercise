@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}New post{% endblock %}
+{% block content %}
+<h1>Add new post</h1>
+<form action="" method = POST>
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" name="title" placeholder="title" autofocus="autofocus" required>
+      </div>
+    <div class="mb-3">
+        <label for="content" class="form-label">Text</label>
+        <input type="text" class="form-control" name="content" placeholder="your text here" required>
+    </div>
+    <button class="btn btn-success ms-4">Submit</button>
+    <a href="/" class="btn btn-primary ms-4" style="width:5rem; margin:0 auto">Home</a>
+</form>
+
+{% endblock %}
