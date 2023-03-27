@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Tag {{tag.id}}{% endblock %}
+{% block content %}
+
+<div class="card m-auto" style="width: 40rem;">
+    <div class="card-body">
+        <h3>{{ tag.name }}</h3>
+        
+        <ul class="ms-4">
+            {% for p in tag.posts: %}
+            <li>
+                <a style="text-decoration: none" href="/posts/{{ p.id }}">{{ p.title }}</a> by 
+                <a style="text-decoration: none" href="/users/{{ p.user_id }}">{{p.user.full_name}}</a>
+                ({{ p.friendly_date }})    
+            </li>
+            {% endfor %}
+        </ul>
+      
+        <form>
+        
+            <a href="/" class="btn btn-sm btn-primary ms-2 mt-3">Home</a>
+        
+            <a href="/tags/{{ tag.id }}/edit" class="btn btn-sm btn-success mt-3">Edit tag</a>
+            
+            <a href="/tags" class="btn btn-sm btn-secondary mt-3">All tags</a>
+        
+        </form>
+    </div>
+</div>
+
+{% endblock %}

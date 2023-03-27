@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Edit tag{% endblock %}
+{% block content %}
+<h1>Edit tag</h1>
+<form action="" method = POST>
+    <div class="mb-3">
+        <label for="name" class="form-label">{{ tag.name }}</label>
+        <input type="text" class="form-control" name="name" value = "{{ tag.name }}" autofocus="autofocus" required>
+    </div>
+    
+    <button class="btn btn-success">Confirm</button>
+    <button class="btn btn-secondary">Cancel</button>
+    <button class="btn btn-danger" formaction="/tags/{{ tag.id }}/delete" formmethod="POST">Delete
+    </button>
+</form>
+
+{% endblock %}

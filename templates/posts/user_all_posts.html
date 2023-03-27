@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Posts for User{% endblock %}
+{% block content %}
+<h1 class="ms-5">All Posts of {{ user.full_name }}</h1>
+<ul class="ms-4">
+    {% for p in posts: %}
+    <li>
+        <a style="text-decoration: none" href="/posts/{{ p.id }}">{{ p.title }}</a>
+        ({{ p.friendly_date }})    
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="/" class="btn btn-sm btn-primary ms-3 mt-3">Home</a>
+<a href="/users/{{user.id}}" class="btn btn-sm btn-secondary mt-3">Back to user</a>
+<a href="/users/{{user.id}}/posts/new" class="btn btn-sm btn-info mt-3">Add post</a>
+
+{% endblock %}

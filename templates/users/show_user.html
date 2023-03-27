@@ -3,12 +3,12 @@
 {% block content %}
 
 <div class="card m-auto" style="width: 20rem;">
-    <img src = {{user.image_url}} class="card-img-top m-auto mt-2" style="width:90%" alt= "{{user.full_name}}'s pic" >
+    <img src = {{user.image_url}} class="card-img-top m-auto mt-2" style="width:90%; max-height:300px" alt= "{{user.full_name}}'s pic" >
     <div class="card-body">
         <h3 class="text-center">{{ user.full_name}}</h3>
         <p class="card-text">
             <ul style="list-style-type:none">
-                <li> <a href="#">Blogs</a></li>
+                <li> <a href="/users/{{user.id}}/posts">Blogs</a></li>
                     <ul style="list-style-type:square; font-size:0.85rem">
                         {% for p in posts: %}
                         <li>{{p.short_date}} <a href='/posts/{{ p.id }}'> {{ p.title }} </a></li>

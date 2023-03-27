@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}New tag{% endblock %}
+{% block content %}
+<h1>Add new tag</h1>
+<form action="" method = POST>
+    <div class="mb-3">
+        <label for="title" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" placeholder="new tag name" autofocus="autofocus" required>
+      </div>
+    <button class="btn btn-success btn-sm mt-2">Add</button>
+    <a href="/" class="btn btn-primary btn-sm mt-2">Home</a>
+    <a href="/tags" class="btn btn-secondary btn-sm mt-2">Cancel</a>
+</form>
+
+{% endblock %}

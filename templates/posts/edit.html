@@ -11,9 +11,22 @@
         <label for="content" class="form-label">Content</label>
         <input type="text" class="form-control" name="content" value ="{{ post.content }}" required>
     </div>
-    <button class="btn btn-success">Confirm</button>
-    <button class="btn btn-secondary">Cancel</button>
-    <button class="btn btn-danger" formaction="/posts/{{ post.id }}/delete" formmethod="POST">Delete
+    <h6>Add tags</h6>
+    {% for t in tags %}    
+        <div class="form-check">
+            <input type="checkbox"
+             class="form-check-input"
+             value="{{ t.id }}" id="tag_{{ t.id }}"
+             {% if t in post.tags %} checked
+             {% endif %}
+             name="tags">
+            <label for="">{{ t.name }}</label>
+        </div>
+    {% endfor %}
+    
+    <button class="btn btn-success btn-sm mt-3">Confirm</button>
+    <button class="btn btn-secondary btn-sm mt-3">Cancel</button>
+    <button class="btn btn-danger btn-sm mt-3" formaction="/posts/{{ post.id }}/delete" formmethod="POST">Delete
     </button>
 </form>
 
